@@ -1,12 +1,12 @@
 # ********************************************
 # |docname| - Read the Docs configuration file
 # ********************************************
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+# This sets up the RTD build to use CodeChat. See https://docs.readthedocs.io/en/stable/config-file/v2.html for details on this file's format.
 
 # Required
 version: 2
 
-# TODO: need some way to invoke a runestone build. Idea: a mock conf.py that runs the build in a subprocess.
+# Build documentation in the docs/ directory with Sphinx
 sphinx:
   configuration: conf.py
 
@@ -14,5 +14,4 @@ sphinx:
 python:
   version: 3.8
   install:
-    - method: pip
-      path: .
+    - requirements: requirements-rtd.txt

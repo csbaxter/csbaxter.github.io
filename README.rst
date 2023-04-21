@@ -1,191 +1,137 @@
-RunestoneComponents
-===================
+Runestone Academy Server and API
+================================
 
-.. image:: https://img.shields.io/pypi/v/Runestone.svg
-   :target: https://pypi.python.org/pypi/Runestone
-   :alt: PyPI Version
+.. image:: https://runestone.academy/static/images/logo_small.png
+    :align: center
+    :width: 300
 
-.. image:: https://img.shields.io/pypi/dm/Runestone.svg
-   :target: https://pypi.python.org/pypi/Runestone
-   :alt: PyPI Monthly downloads
+.. image:: https://github.com/RunestoneInteractive/RunestoneServer/actions/workflows/python-app.yml/badge.svg
 
-.. image:: https://github.com/RunestoneInteractive/RunestoneComponents/workflows/Python%20package/badge.svg
+.. image:: https://coveralls.io/repos/github/RunestoneInteractive/RunestoneServer/badge.png?branch=master
+   :target: https://coveralls.io/github/RunestoneInteractive/RunestoneServer?branch=master
 
-Packaging of the Runestone components for publishing educational materials using Sphinx and restructuredText. Check out the `Overview <http://interactivepython.org/runestone/static/overview/overview.html>`_ To see all of the extensions in action.
 
-Runestone Version 6
--------------------
+.. image:: https://readthedocs.org/projects/runestoneserver/badge/?version=latest
+    :target: https://runestoneserver.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
-**Important** December 2021 - merged Runestone 6 to master branch.  In runestone 6.0 we assume that you are using the new `bookserver` for serving books.  This is installed automatically as part of the Docker build in the main RunestoneServer.  But you can also `pip install bookserver` to run a small scale server that uses sqllite.  Eventually `bookserver` will replace the super simple server you get when you run `runestone serve`
+
+Runestone Server Introduction
+-----------------------------
+
+The mission of Runestone Academy is to democratize textbooks for the 21st century. To accomplish that mission we make high quality interactive textbooks available for free to all **students.** In the 21st century it is silly to ignore the wonderful possibilities for interactivity in a web browser, so we make great interactive textbooks that engage students in learning. It would also be silly to ignore the rich data that an online textbook can provide to **teachers, authors** and **researchers.** To support these different stakeholders we have built a Learning Engineering and Analytics Portal (LEAP).
+
+What is a LEAP?
+***************
+
+* **Learning Engineering** is the systematic application of evidence-based principles and methods from educational technology and the learning sciences to create engaging and effective learning experiences, support the difficulties and challenges of learners as they learn, and come to better understand learners and learning. Everything we do on `Runestone Academy <https://runestone.academy>`_ takes this engineering approach to continuous improvement.
+
+* **Analytics** As an instructor it is key to understand which of your students is struggling, which of them are working hard, which of them are successful or not. Runestone lets you quickly look at a dashboard of student progress to help you decide how to spend your classroom time most effectively. As a researcher or author you want to know what parts of your book are read the most, which questions are effective and which are duds that should be replaced or fixed to make them better.
+
+* **Portal:** Runestone Academy is a portal for online textbooks, students can interact with our books on any device for free. Runestone Academy is a portal for teachers who want to create a course, grade their students work, and monitor their progress all in one place. Runestone Acaademy is a portal for authors and researchers who want to invent new pedagogical strategies and try them out on lots of students while gaining access to anonymous information to help them better understand how students learn.
+
+Our primary stakeholders are students, teachers, authors, and educational researchers.  You might think of what we are trying to accomplish in terms of a virtuous circle of improvement.   Educational Research makes good Open Educational Resources better, which in turn helps teachers teach more effectively, which improves student learning, which drives even more interesting educational research…
+
+.. image:: https://blog.runestone.academy/_images/VirtuousCircle.png
+
+
+We welcome contributions to all aspects of the Runestone ecosystem.  Our vision is big and our todo list is long.  If you are interested in finding out more about our community see `Our blog page <https://blog.runestone.academy>`_  We have recently received funding from the NSF to grow our community and ecosystem, see `The PROSE Project <https://prose.runestone.academy>`_ to learn more about that project and how you can participate.
+
+We understand that privacy in student learning is paramount.  If you are uncomforable using a cloud based solution to host your courses, You are welcome to fork this source and run your own server.
+
+
+Installation
+------------
+
+With Docker
+***********
+
+The easiest way to deploy Runestone Server is to use `Docker <https://www.docker.com/>`_. Docker automates
+installing many of the components needed to provide a functioning server.
+Please see complete instructions on the `Docker Deployment ReadTheDocs page <https://runestoneserver.readthedocs.io/en/latest/docker/README.html>`_.
+
+
+Manual Installation
+*******************
+
+It is also possible to manually install Runestone Server. This involves more work up front, but may make any custom modifications you do later a little more straightforward. For instructions, see these `Manual Installation instructions <https://runestoneserver.readthedocs.io/en/latest/docs/installation.html>`_.
+
+
 
 Documentation
 -------------
 
-Writing **new** books using the Runestone RST markup language is deprecated as of Summer 2022.  It is strongly recommended that you use the `PreTeXt <https://pretextbook.org>`_ markup language for writing new books.
+Links to documentation for the project are on `runestoneserver.readthedocs.org <http://runestoneserver.readthedocs.org>`_  This includes
+the list of dependencies you need to install in order to build the books included in the repository, or to set up
+a complete server environment.
 
-* Take a look at the `Sample Book <https://pretextbook.org/examples/sample-book/annotated/sample-book.html>` Especially Chapter 3, the section titled Interactive Exercises.  The activecode, CodeLens and all the rest of the interactives that you see in that sample book are powered by the components in this repository.  This repository will remain the home of those interctive components.
+The Runestone Tools are not only good for authoring the textbooks contained in this site, but can also be used for:
 
-* Take a look at the `PreTeXt Guide <https://pretextbook.org/doc/guide/html/guide-toc.html>`_ It contains comprehensive documentation on writing in PreTeXt.
-
-* As an Author you will want to use the PreTeXt CLI for writing books.   Experienced Runestone authors will find the pretext cli to be quite familiar, but better organized with fewer mysterious configuration files. See `PreTeXt-CLI <https://pretextbook.org/doc/guide/html/guide-toc.html>`
-
-
-Quick Start
------------
-
-* `pip install pretext`
-* Create a folder for your book project then run
-* `pretext new` to create a new book.
+* Making your own lecture materials
+* Making online quizzes for use in class
+* Creating online polls for your course
 
 
-Old Documentation
+How to Contribute
 -----------------
 
-I will keep this around for a while during the transition to PreTeXt.
-
-To get started with Runestone restructuredText as the markup language:
-
-* `pip install runestone`
-
-To start a project, create a new folder and then run the following command (installed by pip)  in that new folder ``runestone init``  For example:
-
-::
-
-    mkdir myproject
-    cd myproject
-    runestone init
+#. See the file `CONTRIBUTING.md` in this directory
+#. Get a Github (free) account.
+#. Make a fork of this project.  That will create a repository in your
+   account for you to have read/write access to.  Very nice, complete
+   instructions for making a fork are here:  ``https://help.github.com/articles/fork-a-repo``
+#. Clone the repository under your account to your local machine.
+#. Check the issues list, or add your own favorite feature.  commit and pull to your fork at will!
+#. Make a Pull Request.  This will notify me that I should look at your changes and merge them into the main repository.
+#. Repeat!
 
 
-The init command will ask you some questions and setup a default project for you. The default response is in square brackets, example ``[false]``.
+How to Contribute $$
+--------------------
 
-To build the included default project run
-
-::
-
-    runestone build
-
-*Note:* If you come across version conflict with ``six`` library while building the project, ``pip install --ignore-installed six`` command might be useful.
-
-You will now have a build folder with a file index.html in it, along with some default content.  The contents of the build folder are suitable for hosting anywhere that you can serve static web content from!  For a small class you could even serve the content using the provided Python webserver::
-
-    $ runestone serve
-
-Now from your browser you can open up ``http://localhost:8000/index.html``  You should see the table of contents for a sample page like this:
-
-.. image:: images/runeCompo-index.png
-    :width: 370
+As our popularity has grown we have server costs.
+If this system or these books have helped you, please consider making a small
+donation using any of the Support links at the top of this page.
 
 
-If you edit ``_sources/index.html`` or ``_sources/overview.rst`` and then rebuild and serve again you will see your changes.  The best documentation is probably the overview.rst file itself, as it demonstrates how to use all of the common components and shows most of their options.
+More Documentation
+------------------
 
+I have begun a project to document the `Runestone Academy <https://runestone.academy/ns/books/published/authorguide/index.html>`_ tools
 
-**Windows Users** I have tested the installation, along with init, build, and serve on Windows 8.1.
-The biggest pain is probably setting your PATH environment variable so you can simply type the commands
-from the shell.  Please note that I am not a regular user of windows, I only test things on my VMWare
-installation every so often.  If you are new to using Python on windows I recommend you check out this
-link on `Using Python with Windows <https://docs.python.org/3.4/using/windows.html>`_
+* All of the Runestone Academy extensions to sphinx:
 
+  * Activecode -- Interactive Python in the browser
+  * Codelens  -- Step through code examples and see variables change
+  * mchoicemf  -- multiple choice questions with feedback
+  * mchoicema  -- multiple choice question with multiple answers and multiple feedback
+  * fillintheblank  -- fill in the blank questions with regular expression matching answers
+  * parsonsproblem  -- drag and drop blocks of code to complete a simple programming assignment
+  * datafile -- create datafiles for activecode
 
-Developing and Hacking
-----------------------
+* How to write your own extension for Runestone Academy
 
-So, you would like to help out with developing the Runestone Components.  Great We welcome all the help we can get.  There is plenty to do no matter what your experience level.  There are a couple of prerequisites.
+Enable Bug Reporting on Github
+------------------------------
 
-1. You will need a version of Python, I currently develop on 3.9 or higher, but test on 3.8 and later.
+The Runestone server now has a controller to allow users to enter bug reports without needing a Github account.  But for this to work you will need to configure ``settings.github_token`` in ``models/1.py``
 
-2. You will need nodejs and npm as well since there is a LOT of Javascript code in the components.
+Creating Your Own Textbook
+--------------------------
 
-To get everything set up do the following
+To find instructions on using the Runestone Tools to create your own interactive textbook, see the
+instructions in the `Runestone Components repository <https://github.com/RunestoneInteractive/RunestoneComponents>`_.
 
-1.  Make a Fork of this repository. and ``git clone`` the repository to your development machine.
-
-2.  Install `Poetry  <https://python-poetry.org/docs/>`_
-
-3.  From the top level RunestoneComponents folder run ``npm install`` this will install the packaging tools that are needed for Javascript development.  ``npm run`` gives you a list of commands  The key command is ``npm run build`` this will combine all of the Javascript and CSS files for all the components into a single runestone.js file.  If you are doing some really deep development and want to avoid building a book, you can put your html in public/index.html and use the ``npm run start`` command.  This will automatically rebuild runestone.js and refresh the webpage every time you save a change.
-
-
-4.  When you have some changes to share, make a Pull Request.
-
-(See the RunestoneServer repository and **http://runestoneinteractive.org** for more complete documentation on how this project works.)
-
-Code Style
-----------
-
-We use ``black`` to automatically style Python.  You can set up your editor to automatically run black whenever you save, or you can run it manually.
-
-We use ``prettier`` to automatically style Javascript.
-
-Run ``jshint`` on your code we have some options configured for this project.
-
-Writing Tests
+Browser Notes
 -------------
 
-A great way to contribute to the Runestone Components repository is to add to our test suite.
+Note, because this interactive edition makes use of lots of HTML 5 and Javascript
+I highly recommend either Chrome, or Safari.  Firefox 67+ works too.  Reportedly Edge works fine as well.
 
-Our goal is to have unit tests which rely on Selenium (a library that helps simulate interactions in a web browser) for each directive, to see if the JavaScript that powers the directives is working correctly.
+Python Notes
+------------
 
-**In order to get started with writing a test/writing additional tests, you will need the following:**
-
-
-* Download the latest `ChromeDriver <https://chromedriver.storage.googleapis.com/index.html>`_., which is a driver that simulates Google Chrome.
-
-* On linux you will need to install Xvfb ``apt-get install xvfb``
-
-* You'll also need to have done the above installation.
-
-* We have converted to using poetry for our dependency management.  To run `runestone` while in development mode `poetry run runestone ...`  OR you can run `poetry shell` to start up a shell with a virtual environment activated.
-
-
-**To run tests:**
-
-* Make sure the directory containing the ChromeDriver executable is in your ``PATH`` environment variable. e.g. ``PATH=$PATH:path/to/chromedriver`` at your command line (or edit your ``.bash_profile``).
-
-* Check out the existing tests, e.g. the ``test_question.py`` file that tests the Question directive, which you can find at the path ``/runestone/question/test/test_question.py``, for an example.
-
-* Each directive's individual set of tests requires a mini book. You'll see a ``_sources`` folder for each existing test containing an ``index.rst`` file. That file contains a title, as required by ``.rst``, and whatever directive examples you want to test.
-
-* Finally, to run a test, ensuring that you have accessed a directive folder, type the following at the command prompt:
-
-  * ``poetry run pytest``
-
-Running pytest from the main directory will run all the tests.  To run a single test you can navigate to the
-directory of the test, or you can run ``poetry run pytest -k XXX`` where XXX is a substring that matches some part of
-the test functions name.
-
-.. note::
-
-  8081 is the default test port.
-  If you are running another server on this port, you may encounter an error.
-  See the Python files, e.g. ``test_question.py``, to see how this is set up.
-
-You should then see some test output, showing a pass (``ok``), FAIL, or error(s).
-
-If you have an error relating to PhantomJS/a driver in the output, you probably have a PATH or driver installation problem.
-
-**To write a new test:**
-
-* Create a ``test`` directory inside a directive's folder
-
-* Create a Python file to hold the test suite inside that directory, e.g. ``test_directivename.py``
-
-* Run ``runestone init`` inside that folder and answer the following prompts
-
-* Write the appropriate directive example(s) inside the ``index.rst`` file (which will be created as a result of ``runestone init``)
-
-* Edit the Python file you created as appropriate (see documentation for the Python ``unittest`` module `In the Python docs <https://docs.python.org/2/library/unittest.html>`_.)
-
-
-Notes for more Advanced Users
------------------------------
-
-If you already have an existing `Sphinx <http://sphinx-doc.org>`_  project and you want to incorporate the runestone components into your project you can just make a couple of simple edits to your existing ``conf.py`` file.
-
-* First add the following import line ``from runestone import runestone_static_dirs, runestone_extensions``
-* Then modify your extensions.  You may have a different set of extensions already enabled, but it doesn't matter just do this:  ``extensions = ['sphinx.ext.mathjax'] + runestone_extensions()``
-* Then modify your html_static_path:  ``html_static_path = ['_static']  + runestone_static_dirs()``  Again you may have your own set of static paths in the initial list.
-
-
-See https://github.com/bnmnetp/runestone/wiki/DevelopmentRoadmap to get a sense for how this is all going to come together.
+Python 2.7 reached the end of its life on January 1st, 2020. All of our development is now on Python 3.7 and 3.8.  With the release of docutils 0.15 sphinx no longer runs on 2.7 unless you install docutils 0.14. Sphinx 2.x only supports Python 3.x.  In July 2019 I removed testing for Python 2.7 as it is too much work to try to keep track of dependencies for 2.x and 3.x.  Please upgrade to Python 3.
 
 Researchers
 -----------

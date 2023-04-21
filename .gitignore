@@ -1,70 +1,74 @@
-# *********
-# |docname|
-# *********
-*.py[cod]
-*.log
-.venv
-jsdist
-
-# C extensions
-*.so
-
-# Packages
-*.egg
-*.egg-info
-build
-eggs
-parts
-bin
-var
-sdist
-dist/*
-develop-eggs
-.installed.cfg
-__pycache__
-.cache
-_deploy
-
-# Installer logs
-pip-log.txt
-
-# Unit test / coverage reports
-.coverage
-.tox
-nosetests.xml
-
-# Translations
-*.mo
-
-# Mr Developer
-.mr.developer.cfg
-.project
-.pydevproject
-.idea
-bower_componenets/
-.venv
+127.0.0.1.2012*
+errors/*
+sessions/*
+127.0.0.1-*
+databases/*
+*.o
 *~
-
-# Files produced by runestone builds.
-runestone/*/test/build_info
-**/sphinx_settings.json
-build_info
-runestone/dist*.tgz
-dist/
-
-# IDEs
-.vscode/
-.vs/
-**/sphinx-enki-info.txt
-# Mac stuff
 .DS_Store
+databases/storage.sqlite
+data/*
+databases/c8b669d15150d7109e5f7ab36744a5b7_auth_cas.table
+databases/c8b669d15150d7109e5f7ab36744a5b7_auth_event.table
+databases/c8b669d15150d7109e5f7ab36744a5b7_auth_group.table
+databases/c8b669d15150d7109e5f7ab36744a5b7_auth_membership.table
+databases/c8b669d15150d7109e5f7ab36744a5b7_auth_permission.table
+databases/c8b669d15150d7109e5f7ab36744a5b7_auth_user.table
+private/*
+*.pyc
+*.class
+/.idea/
+\#*\#
+TAGS
+cache/*
+*.log
+*.orig
+.pythonhistory
+custom_courses/
+/source/index.rst
+models/1.py
+/runestone.sublime-project
+/runestone.sublime-workspace
+/chromedriver.log
+/ghostdriver.log
+/paverconfig.py
+/build_info
 node_modules
-runestone/dist
-runestone/.DS_Store
-runestone/assess/.DS_Store
-runestone/.DS_Store
-runestone/.DS_Store
-runestone/assess/.DS_Store
-.DS_Store
+/test
+*/_static/blockly*.html
+/static/*
+# except
+!/static/_static
+!/static/_sources
+!/static/_images
+!/static/css
+!/static/js
+!/static/robots.txt
+!/static/favicon.ico
+!/static/runestone-custom-sphinx-bootstrap.css
+!/static/websupport-custom.css
+!/static/images
+!/static/bootstrap*
+!/static/dashboard*
+!/static/motd.html
+.vscode/*
+*.egg-info/
+*.egg
+AC_scripts
+Pipfile.lock
+rsmanage/build
+tests/test_book/build
+instructors.csv
+htmlcov
+/languages/
+docker-compose.override.yml
 .history
+/_build/
+sphinx-enki-info.txt
+_builddoctrees
+.venv
 .nova
+.env
+docker/nginx/sites-available/runestone
+ready.txt
+books/*

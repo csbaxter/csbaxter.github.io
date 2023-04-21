@@ -1,0 +1,54 @@
+dist: xenial
+language: python
+python:
+- '3.6'
+- '3.7'
+- '3.8.3'
+services:
+- postgresql
+# For Celery (web2py scheduler replacement).
+- redis-server
+addons:
+  postgresql: '9.4'
+  apt:
+    packages:
+      - openjdk-8-jre-headless
+      - google-chrome-stable
+env:
+- WEB2PY_VERSION=2.20.4
+script:
+- pip install -U -r requirements-dev.txt
+- mkdir runestone
+# Move everything except the newly-created ``runestone/`` directory into ``runestone/``. See https://askubuntu.com/questions/91740/how-to-move-all-files-in-current-folder-to-subfolder.
+- mv !(runestone) runestone
+- export LANG=en_US.UTF-8
+- export WEB2PY_CONFIG=test
+- export TEST_DBURL=postgres://postgres:@localhost/runestone_test
+# Get the Selenium binary.
+- wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+- unzip chromedriver_linux64.zip
+# Put the chromedriver in the path.
+- export PATH=$PATH:`pwd`
+# This URL was taken from a `post <https://groups.google.com/forum/#!topic/web2py/VXgsvfz67Fc>`_. Don't download the tagged releases from github, since they lack the DAL.
+- wget http://web2py.com/examples/static/${WEB2PY_VERSION}/web2py_src.zip
+#- wget https://github.com/web2py/web2py/archive/R-${WEB2PY_VERSION}.zip
+#- git clone --branch R-2.18.5 https://github.com/web2py/web2py
+#- cd web2py
+#- git submodule update --init --recursive
+- unzip web2py_src.zip
+- cd web2py/applications
+- mv ../../runestone .
+- cd runestone
+- mkdir private
+- echo "sha512:16492eda-ba33-48d4-8748-98d9bbdf8d33" > private/auth.key
+- pip install -e rsmanage
+- cd books
+- git clone https://github.com/RunestoneInteractive/thinkcspy.git
+- cd ../../..
+- cp applications/runestone/tests/.coveragerc .
+# Now actually run the tests.
+- pytest -v applications/runestone/tests
+- coveralls
+notifications:
+  slack:
+    secure: OfeZ/+YHpSl7GNFkzEKu0uObuMdymKmDEeDyfB++RaglalcgkDQAqrCPx+YVw6brXOHGeC6BkGJe/Fs143Ai8/yf38nMmZg/dej5nLgZNST67jWaapIydx5QeuCrsRKvUP+z6yEYoBkYXTsYPyTiKGGsyzvX6dimZRT4nD8qrv0=
